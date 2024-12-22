@@ -16,21 +16,19 @@ const Bannar = () => {
         {/* Slide 1 */}
         <div id="slide1" className="carousel-item relative w-full">
           <img
-            src="https://i.ibb.co/JzNymHF/close-up-coin-jar-with-tree.jpg"
+            src="https://i.ibb.co.com/FhLpsp6/jonny-gios-4-SQ1-If-HNIlc-unsplash.jpg"
             className="w-full h-screen object-cover"
             alt="Slide 1"
           />
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center w-11/12 px-4 sm:px-6 md:px-8">
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-wide shadow-md drop-shadow-2xl">
-              Empower Your Dreams and Make Them a Reality!
+            Find What You’ve Lost
             </h2>
             <p className="mt-6 text-xl md:text-2xl font-light opacity-90">
               <Typewriter
                 words={[
-                  "Raise funds for creative ideas and personal goals.",
-                  "Our platform helps turn your imagination into reality.",
-                  "Gather support from others who believe in your vision!",
+                  "Discover a seamless way to locate or report lost items with ease",
                 ]}
                 loop={5}
                 cursor
@@ -56,21 +54,19 @@ const Bannar = () => {
         {/* Slide 2 */}
         <div id="slide2" className="carousel-item relative w-full">
           <img
-            src="https://i.ibb.co/448qZSV/dream-word-wooden-cubes.jpg"
+            src="https://i.ibb.co.com/nfVZQVK/mika-baumeister-9-Tvux-GW8ut0-unsplash.jpg"
             className="w-full h-screen object-cover"
             alt="Slide 2"
           />
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center w-11/12 px-4 sm:px-6 md:px-8">
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-wide shadow-md drop-shadow-2xl">
-              Join Our Community and Start Your Journey!
-            </h2>
+            Organize Your Found Items </h2>
             <p className="mt-6 text-xl md:text-2xl font-light opacity-90">
               <Typewriter
                 words={[
-                  "Be a part of the change by supporting campaigns.",
-                  "Together, we can create a better future.",
-                  "Help others in need of your support!",
+                  "Manage and update the items you’ve found, all in one place.",
+
                 ]}
                 loop={5}
                 cursor
@@ -96,21 +92,20 @@ const Bannar = () => {
         {/* Slide 3 */}
         <div id="slide3" className="carousel-item relative w-full">
           <img
-            src="https://i.ibb.co/Vv2kkty/white-rag-dolls-field.jpg"
+            src="https://i.ibb.co.com/k2GVL4Z/peter-herrmann-Fc-Wt-Bd-Riry-E-unsplash.jpg"
             className="w-full h-screen object-cover"
             alt="Slide 3"
           />
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center w-11/12 px-4 sm:px-6 md:px-8">
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-wide shadow-md drop-shadow-2xl">
-              Start Your Campaign and Inspire Others!
+            Join the Community
             </h2>
             <p className="mt-6 text-xl md:text-2xl font-light opacity-90">
               <Typewriter
                 words={[
-                  "Launch your idea and inspire others to contribute.",
-                  "Your project can change lives.",
-                  "Create a ripple effect that helps many people in need!",
+                  "Connect with others and make a difference by helping",
+                  " them recover their lost belongings..",
                 ]}
                 loop={5}
                 cursor
