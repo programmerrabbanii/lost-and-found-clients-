@@ -5,6 +5,9 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Found from "../pages/Found";
+import AddLost from "../pages/AddLost";
+import Recovered from "../pages/Recovered";
+import Mymanage from "../pages/Mymanage";
 
 const router=createBrowserRouter([
     {
@@ -22,16 +25,29 @@ const router=createBrowserRouter([
 
             },
             {
+              path:'/add-lost',
+              element:<AddLost></AddLost> 
+            },
+            {
+                path:'/recovered',
+                element:<Recovered></Recovered>
+            },
+            {
+                path:'/my-manage',
+                element:<Mymanage></Mymanage>
+
+            },
+            {
                 path:'/login',
                 element:<Login></Login>
             },
             {
                 path:'/register',
                 element:<Register></Register>
-            },
+            }
             
         ]
         
-    }
+    } 
 ])
 export default router

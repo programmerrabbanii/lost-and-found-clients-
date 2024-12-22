@@ -1,68 +1,68 @@
-import {  useState } from "react";
+import {  useContext, useState } from "react";
 import Lottie from "lottie-react";
 import loginAnimation from "../assets/lottie/login.json";
-import { Link } from "react-router-dom";
-// import { AuthContext } from "../auth/AuthProvider";
-// import Swal from "sweetalert2";
-// import { useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom"; 
+import { AuthContext } from "../auth/AuthProvider";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-//   const { signUser, googleLogin } = useContext(AuthContext);
-//   const navigate = useNavigate();
-//   const location=useLocation()
-//   const from=location.state || '/' 
+  const { signUser, googleLogin,loginGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location=useLocation()
+  const from=location.state || '/' 
 
-//   const handleLogin = (e) => {
-//     e.preventDefault();
-//     const email = e.target.email.value;
-//     const password = e.target.password.value;
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
     
-//     signUser(email, password)
-//       .then(() => {
-//         Swal.fire({
-//           position: "top-end",
-//           icon: "success",
-//           title: "Login successful!",
-//           showConfirmButton: false,
-//           timer: 1500,
-//         });
-//         navigate(from);
-//       })
-//       .catch((error) => {
-//         Swal.fire({
-//           position: "top-end",
-//           icon: "error",
-//           title: error.message || "Login failed!",
-//           showConfirmButton: false,
-//           timer: 1500,
-//         });
-//       });
-//   };
+    signUser(email, password)
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Login successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(from);
+      })
+      .catch((error) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: error.message || "Login failed!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  };
 
 
-//   const handleGoogleLogin = () => {
-//     googleLogin()
-//       .then(() => {
-//         Swal.fire({
-//           position: "top-end",
-//           icon: "success",
-//           title: "Google login successful!",
-//           showConfirmButton: false,
-//           timer: 1500,
-//         });
-//         navigate("/");
-//       })
-//       .catch((error) => {
-//         Swal.fire({
-//           position: "top-end",
-//           icon: "error",
-//           title: error.message || "Google login failed!",
-//           showConfirmButton: false,
-//           timer: 1500,
-//         });
-//       });
-//   };
+  const handleGoogleLogin = () => {
+    loginGoogle()
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Google login successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: error.message || "Google login failed!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      });
+  };
 
   return (
     <div className="hero bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 min-h-screen flex items-center">
@@ -77,7 +77,7 @@ const Login = () => {
           <h1 className="text-4xl font-bold text-center text-indigo-600 mb-6">
             Login Now!
           </h1>
-          <form className="space-y-4" >
+          <form onSubmit={handleLogin} className="space-y-4" >
             {/* Email Input */}
             <div className="form-control">
               <label className="label">
@@ -130,6 +130,7 @@ const Login = () => {
             {/* Google Login Button */}
             <div className="form-control">
               <button
+               onClick={handleGoogleLogin}
                 type="button"
                 
                 className="btn btn-outline btn-secondary w-full py-3 rounded-lg text-lg font-medium"

@@ -1,97 +1,97 @@
 import Lottie from "lottie-react";
 import lottieRegister from "../assets/lottie/Animation - 1733924011105.json";
-import {  useState } from "react";
+import {  useContext, useState } from "react";
 import { Link } from "react-router-dom";
-// import { AuthContext } from "../auth/AuthProvider";
-// import { updateProfile } from "firebase/auth";
-// import Swal from "sweetalert2";
-// import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../auth/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-//   const { createUser, setUser, googleLogin } = useContext(AuthContext);
+  const { createUser, setUser, loginGoogle } = useContext(AuthContext);
   const [errorPassWord, setErrorPassword] = useState();
   const [showPassword, setShowPassword] = useState(false); // Password Toggle
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
 
-//   const handleRegister = (e) => {
-//     e.preventDefault();
-//     const name = e.target.name.value;
-//     const email = e.target.email.value;
-//     const password = e.target.password.value;
-//     const photo = e.target.photo.value;
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const photo = e.target.photo.value;
 
-//     // Password Validation
-//     if (!/[A-Z]/.test(password)) {
-//       setErrorPassword("Password must include at least one uppercase letter.");
-//       return;
-//     } else if (!/[a-z]/.test(password)) {
-//       setErrorPassword("Password must include at least one lowercase letter.");
-//       return;
-//     } else if (password.length < 6) {
-//       setErrorPassword("Password must be at least 6 characters long.");
-//       return;
-//     } else {
-//       setErrorPassword("");
-//     }
+    // Password Validation
+    if (!/[A-Z]/.test(password)) {
+      setErrorPassword("Password must include at least one uppercase letter.");
+      return;
+    } else if (!/[a-z]/.test(password)) {
+      setErrorPassword("Password must include at least one lowercase letter.");
+      return;
+    } else if (password.length < 6) {
+      setErrorPassword("Password must be at least 6 characters long.");
+      return;
+    } else {
+      setErrorPassword("");
+    }
 
-//     // Create User
-//     createUser(email, password)
-//       .then((result) => {
-//         const user = result.user;
-//         updateProfile(user, {
-//           displayName: name,
-//           photoURL: photo,
-//         })
-//           .then(() => {
-//             setUser(user);
-//             Swal.fire({
-//               position: "top-end",
-//               icon: "success",
-//               title: "Registration successful!",
-//               showConfirmButton: false,
-//               timer: 1500,
-//             });
-//             navigate("/login");
-//           })
-//           .catch((updateError) => {
-//             Swal.fire({
-//               icon: "error",
-//               title: "Oops...",
-//               text: `Profile update error: ${updateError.message}`,
-//             });
-//           });
-//       })
-//       .catch((error) => {
-//         Swal.fire({
-//           icon: "error",
-//           title: "Oops...",
-//           text: `Error: ${error.message}`,
-//         });
-//       });
-//   };
+    // Create User
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        updateProfile(user, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {
+            setUser(user);
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Registration successful!",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate("/login");
+          })
+          .catch((updateError) => {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: `Profile update error: ${updateError.message}`,
+            });
+          });
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `Error: ${error.message}`,
+        });
+      });
+  };
 
-//   const handleGoogleLogin = () => {
-//     googleLogin()
-//       .then((result) => {
-//         const user = result.user;
-//         setUser(user);
-//         Swal.fire({
-//           position: "top-end",
-//           icon: "success",
-//           title: "Google login successful!",
-//           showConfirmButton: false,
-//           timer: 1500,
-//         });
-//         navigate("/");
-//       })
-//       .catch((error) => {
-//         Swal.fire({
-//           icon: "error",
-//           title: "Oops...",
-//           text: `Google login failed: ${error.message}`,
-//         });
-//       });
-//   };
+  const handleGoogleLogin = () => {
+    loginGoogle()
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Google login successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `Google login failed: ${error.message}`,
+        });
+      });
+  };
 
   return (
     <div className="hero bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 min-h-screen">
@@ -103,7 +103,7 @@ const Register = () => {
 
         {/* Card with Form */}
         <div className="card bg-white shadow-2xl w-full max-w-3xl mx-auto rounded-xl p-8">
-          <form  className="card-body">
+          <form  onSubmit={handleRegister} className="card-body">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Full Name Input Field */}
               <div className="form-control">
@@ -192,6 +192,7 @@ const Register = () => {
           {/* Google Login Button */}
           <div className="form-control mt-4">
             <button
+            onClick={handleGoogleLogin}
               
               className="btn btn-secondary w-full py-3 rounded-lg text-lg font-medium"
             >
