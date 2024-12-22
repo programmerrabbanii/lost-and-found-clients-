@@ -5,13 +5,13 @@ import { AuthContext } from '../auth/AuthProvider'
 const Navbar = () => {
   const { user, logOutUser } = useContext(AuthContext)
   return (
-    <div className='navbar bg-green-900 text-white text-lg shadow-sm container px-4 mx-auto'>
+    <div className='navbar bg-gray-800 text-white text-lg shadow-sm container px-4 mx-auto sticky top-0 z-10'>
       <div className='flex-1'>
         <Link to='/' className='flex gap-2 items-center'>
           <span className='font-bold text-4xl'>WhereIsIt</span>
         </Link>
       </div>
-      <div className='flex-none'>
+      <div className='flex-none'> 
         <ul className='menu menu-horizontal px-1'>
           <li>
             <Link to='/'>Home</Link>
