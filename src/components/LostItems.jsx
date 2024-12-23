@@ -43,7 +43,7 @@ const LostItems = () => {
                     >
                         {/* Image */}
                         <img
-                            src={item.img}
+                            src={item.image}
                             alt={item.title}
                             className="w-full h-48 object-cover"
                         />
