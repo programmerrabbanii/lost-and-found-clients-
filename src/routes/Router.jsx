@@ -9,6 +9,7 @@ import AddLost from "../pages/AddLost";
 import Recovered from "../pages/Recovered";
 import Mymanage from "../pages/Mymanage";
 import Details from "../pages/Details";
+import Update from "../pages/Update";
 
 const router=createBrowserRouter([
     {
@@ -44,6 +45,11 @@ const router=createBrowserRouter([
                 loader:({params})=>fetch(`/http://localhost:5000/item/${params.id}`)
                 
 
+            },
+            {
+                path:'/update/:id',
+                element:<Update></Update>
+                
             },
             {
                 path:'/login',
