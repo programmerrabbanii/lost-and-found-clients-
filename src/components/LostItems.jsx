@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const LostItems = () => {
     const [items, setItems] = useState([]);
@@ -62,12 +63,11 @@ const LostItems = () => {
 
                         {/* Footer */}
                         <div className="p-6 flex justify-between items-center">
-                            <a
-                                href={item.detailsUrl}
+                            <Link to={`/details/${item._id}`}
                                 className="text-white bg-blue-600 px-4 py-2 rounded-full shadow-lg hover:bg-blue-700 transition"
                             >
                                 View Details
-                            </a>
+                            </Link>
                             <span
                                 className={`px-3 py-1 text-sm font-medium rounded-full ${
                                     item.status === "found"

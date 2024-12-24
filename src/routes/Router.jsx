@@ -8,6 +8,7 @@ import Found from "../pages/Found";
 import AddLost from "../pages/AddLost";
 import Recovered from "../pages/Recovered";
 import Mymanage from "../pages/Mymanage";
+import Details from "../pages/Details";
 
 const router=createBrowserRouter([
     {
@@ -35,6 +36,13 @@ const router=createBrowserRouter([
             {
                 path:'/my-manage',
                 element:<Mymanage></Mymanage>
+
+            },
+            {
+                path:'/details/:id',
+                element:<Details></Details>,
+                loader:({params})=>fetch(`/http://localhost:5000/item/${params.id}`)
+                
 
             },
             {
