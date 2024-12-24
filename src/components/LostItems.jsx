@@ -63,7 +63,7 @@ const LostItems = () => {
 
                         {/* Footer */}
                         <div className="p-6 flex justify-between items-center">
-                            <Link to={`/details/${item._id}`}
+                            <Link to={`/details/${item.id}`}
                                 className="text-white bg-blue-600 px-4 py-2 rounded-full shadow-lg hover:bg-blue-700 transition"
                             >
                                 View Details
@@ -94,7 +94,7 @@ const LostItems = () => {
             {/* See All Button */}
             <div className="mt-12 flex justify-center">
                 <motion.a
-                    href="/lost-and-found"
+                    href="/found"
                     className="text-white bg-purple-600 px-6 py-3 rounded-full shadow-lg hover:bg-purple-700 hover:shadow-xl transition-transform transform hover:scale-105"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
