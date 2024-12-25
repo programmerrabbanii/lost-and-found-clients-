@@ -10,6 +10,7 @@ import Recovered from "../pages/Recovered";
 import Mymanage from "../pages/Mymanage";
 import Details from "../pages/Details";
 import Update from "../pages/Update";
+import Private from "./Private";
 
 const router=createBrowserRouter([
     {
@@ -23,32 +24,32 @@ const router=createBrowserRouter([
             },
             {
                 path:'/found',
-                element:<Found></Found>
+                element:<Private><Found></Found></Private>
 
             },
             {
               path:'/add-lost',
-              element:<AddLost></AddLost> 
+              element:<Private><AddLost></AddLost></Private> 
             },
             {
                 path:'/recovered',
-                element:<Recovered></Recovered>
+                element:<Private><Recovered></Recovered></Private>
             },
             {
                 path:'/my-manage',
-                element:<Mymanage></Mymanage>
+                element:<Private><Mymanage></Mymanage></Private>
 
             },
             {
                 path:'/details/:id',
-                element:<Details></Details>,
+                element:<Private><Details></Details></Private>,
                 loader:({params})=>fetch(`/http://localhost:5000/item/${params.id}`)
                 
 
             },
             {
                 path:'/update/:id',
-                element:<Update></Update>
+                element:<Private><Update></Update></Private>
                 
             },
             {
