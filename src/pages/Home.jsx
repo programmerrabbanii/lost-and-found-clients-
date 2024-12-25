@@ -6,6 +6,7 @@ import Success from "../components/Success";
 const Home = () => {
     return (
         <div>
+            
             <Bannar></Bannar>
             <LostItems></LostItems>
              <HowItWork></HowItWork>

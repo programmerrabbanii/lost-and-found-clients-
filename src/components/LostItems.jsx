@@ -70,12 +70,12 @@ const LostItems = () => {
                             </Link>
                             <span
                                 className={`px-3 py-1 text-sm font-medium rounded-full ${
-                                    item.status === "found"
+                                    item.postType === "found"
                                         ? "bg-green-100 text-green-700"
                                         : "bg-red-100 text-red-700"
                                 }`}
                             >
-                                {item.status === "found" ? "Found" : "Lost"}
+                                {item.postType === "found" ? "Found" : "Lost"}
                             </span>
                         </div>
 

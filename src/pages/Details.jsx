@@ -42,12 +42,12 @@ const Details = ({ user }) => {
             };
 
             // Store recovered data in another collection
-            await axios.post("https://your-api-endpoint/recovered-items", recoveredData);
+            // await axios.post("https://your-api-endpoint/recovered-items", recoveredData);
 
-            // Update item status
-            await axios.patch(`https://your-api-endpoint/items/${item._id}`, {
-                status: "recovered",
-            });
+            // // Update item status
+            // await axios.patch(`https://your-api-endpoint/items/${item._id}`, {
+            //     status: "recovered",
+            // });
 
             alert("Item status updated to 'Recovered'!");
             setModalOpen(false);

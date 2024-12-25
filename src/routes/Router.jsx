@@ -24,7 +24,7 @@ const router=createBrowserRouter([
             },
             {
                 path:'/found',
-                element:<Private><Found></Found></Private>
+                element:<Found></Found>
 
             },
             {

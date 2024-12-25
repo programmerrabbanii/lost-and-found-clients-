@@ -77,7 +77,7 @@ const Found = () => {
                             <div className="p-6">
                                 <h3 className="text-2xl font-semibold text-gray-800 mb-3">{item.title}</h3>
                                 <p className="text-gray-600 line-clamp-3 mb-4">{item.description}</p>
-                                <div className="flex justify-between text-sm text-gray-500">
+                                <div className=" text-sm text-gray-500">
                                     <p><strong>Location:</strong> {item.location}</p>
                                     <p><strong>Date:</strong> {item.date}</p>
                                 </div>
