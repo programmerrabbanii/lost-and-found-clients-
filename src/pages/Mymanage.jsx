@@ -28,7 +28,7 @@ const Mymanage = () => {
   const handleDelete = async (id) => {
     Swal.fire({
       title: "Are you sure?",
-      text: "Do you really want to delete this campaign?",
+      text: "Do you really want to delete this post",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -42,12 +42,12 @@ const Mymanage = () => {
           });
           if (response.ok) {
             setCampaigns(campaigns.filter((campaign) => campaign._id !== id));
-            Swal.fire("Deleted!", "Your campaign has been deleted.", "success");
+            Swal.fire("Deleted!", "Your post has been deleted.", "success");
           } else {
-            Swal.fire("Failed!", "There was an error deleting the campaign.", "error");
+            Swal.fire("Failed!", "There was an error deleting the post.", "error");
           }
         } catch (error) {
-          console.error("Error deleting campaign:", error);
+          console.error("Error deleting post:", error);
           Swal.fire("Error!", "Something went wrong. Please try again later.", "error");
         }
       }
@@ -106,7 +106,7 @@ const Mymanage = () => {
         </table>
       ) : (
         <div className="text-center py-6">
-          <h3 className="text-xl font-semibold">No campaigns found.</h3>
+          <h3 className="text-xl font-semibold">No post found.</h3>
         </div>
       )}
     </div>

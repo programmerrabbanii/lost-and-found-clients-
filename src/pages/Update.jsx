@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../auth/AuthProvider";
 
 const Update = () => {
-  const { id } = useParams(); 
-  const {user}=useContext(AuthContext)
+  const { id } = useParams();
+  const { user } = useContext(AuthContext);
 
   const [itemData, setItemData] = useState({
     title: "",
     description: "",
-    location: "", 
+    location: "",
     date: "",
     postType: "",
     userName: user?.displayName || "",
@@ -18,12 +18,11 @@ const Update = () => {
   });
 
   useEffect(() => {
-    const fetchItemData = async (id) => {
-        console.log(id);
+    const fetchItemData = async () => {
       try {
         const response = await fetch(`http://localhost:5000/allItems/${id}`);
         const data = await response.json();
-        setItemData(data); 
+        setItemData(data);
       } catch (error) {
         console.error("Error fetching item data:", error);
       }
@@ -61,109 +60,112 @@ const Update = () => {
   };
 
   return (
-    <div className="container mx-auto my-8 px-4">
-      <h2 className="text-center text-3xl font-bold mb-6">Update Item</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Title Field */}
-        <div>
-          <label className="block font-medium">Title</label>
-          <input
-            type="text"
-            name="title"
-            value={itemData.title}
-            onChange={handleInputChange}
-            className="w-full border rounded px-4 py-2"
-            required
-          />
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200 p-6">
+      <div className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-8">
+        <h2 className="text-center text-3xl font-bold text-blue-600 mb-6">Update Item</h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Title Field */}
+          <div>
+            <label className="block text-lg font-medium text-gray-700 mb-2">Title</label>
+            <input
+              type="text"
+              name="title"
+              value={itemData.title}
+              onChange={handleInputChange}
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              required
+            />
+          </div>
 
-        {/* Description Field */}
-        <div>
-          <label className="block font-medium">Description</label>
-          <textarea
-            name="description"
-            value={itemData.description}
-            onChange={handleInputChange}
-            className="w-full border rounded px-4 py-2"
-            required
-          ></textarea>
-        </div>
+          {/* Description Field */}
+          <div>
+            <label className="block text-lg font-medium text-gray-700 mb-2">Description</label>
+            <textarea
+              name="description"
+              value={itemData.description}
+              onChange={handleInputChange}
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              rows="4"
+              required
+            ></textarea>
+          </div>
 
-        {/* Location Field */}
-        <div>
-          <label className="block font-medium">Location</label>
-          <input
-            type="text"
-            name="location"
-            value={itemData.location}
-            onChange={handleInputChange}
-            className="w-full border rounded px-4 py-2"
-            required
-          />
-        </div>
+          {/* Location Field */}
+          <div>
+            <label className="block text-lg font-medium text-gray-700 mb-2">Location</label>
+            <input
+              type="text"
+              name="location"
+              value={itemData.location}
+              onChange={handleInputChange}
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              required
+            />
+          </div>
 
-        {/* Date Field */}
-        <div>
-          <label className="block font-medium">Date</label>
-          <input
-            type="date"
-            name="date"
-            value={itemData.date}
-            onChange={handleInputChange}
-            className="w-full border rounded px-4 py-2"
-            required
-          />
-        </div>
+          {/* Date Field */}
+          <div>
+            <label className="block text-lg font-medium text-gray-700 mb-2">Date</label>
+            <input
+              type="date"
+              name="date"
+              value={itemData.date}
+              onChange={handleInputChange}
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              required
+            />
+          </div>
 
-        {/* Post Type Field */}
-        <div>
-          <label className="block font-medium">Post Type</label>
-          <select
-            name="postType"
-            value={itemData.postType}
-            onChange={handleInputChange}
-            className="w-full border rounded px-4 py-2"
-            required
-          >
-            <option value="" disabled>
-              Select Type
-            </option>
-            <option value="Lost">Lost</option>
-            <option value="Found">Found</option>
-          </select>
-        </div>
+          {/* Post Type Field */}
+          <div>
+            <label className="block text-lg font-medium text-gray-700 mb-2">Post Type</label>
+            <select
+              name="postType"
+              value={itemData.postType}
+              onChange={handleInputChange}
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              required
+            >
+              <option value="" disabled>
+                Select Type
+              </option>
+              <option value="Lost">Lost</option>
+              <option value="Found">Found</option>
+            </select>
+          </div>
 
-        {/* Read-Only Fields */}
-        <div>
-          <label className="block font-medium">User Name</label>
-          <input
-            type="text"
-            value={itemData.userName}
-            className="w-full border rounded px-4 py-2 bg-gray-100"
-            readOnly
-          />
-        </div>
+          {/* Read-Only Fields */}
+          <div>
+            <label className="block text-lg font-medium text-gray-700 mb-2">User Name</label>
+            <input
+              type="text"
+              value={itemData.userName}
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 bg-gray-100 text-gray-500 cursor-not-allowed"
+              readOnly
+            />
+          </div>
 
-        <div>
-          <label className="block font-medium">User Email</label>
-          <input
-            type="email"
-            value={itemData.userEmail}
-            className="w-full border rounded px-4 py-2 bg-gray-100"
-            readOnly
-          />
-        </div>
+          <div>
+            <label className="block text-lg font-medium text-gray-700 mb-2">User Email</label>
+            <input
+              type="email"
+              value={itemData.userEmail}
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 bg-gray-100 text-gray-500 cursor-not-allowed"
+              readOnly
+            />
+          </div>
 
-        {/* Submit Button */}
-        <div className="text-center">
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded"
-          >
-            Update
-          </button>
-        </div>
-      </form>
+          {/* Submit Button */}
+          <div className="text-center">
+            <button
+              type="submit"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-all duration-300"
+            >
+              Update Item
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

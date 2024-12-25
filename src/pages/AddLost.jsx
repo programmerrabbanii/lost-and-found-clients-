@@ -23,14 +23,17 @@ const AddLost = () => {
         const contactName = user?.displayName || 'Anonymous';
         const contactEmail = user?.email || 'N/A';
 
+        // Format date to YYYY-MM-DD
+        const formattedDate = selectedDate.toISOString().split('T')[0];
+
         const lostAllItems = {
             postType,
             image,
             title,
             description,
-            category, 
+            category,
             location,
-            date: selectedDate,
+            date: formattedDate,
             contactName,
             contactEmail
         };
@@ -65,7 +68,6 @@ const AddLost = () => {
                 Add Lost & Found Item
             </h2>
             <form onSubmit={handleAddLost} className="space-y-8">
-                {/* Form fields remain the same */}
                 {/* Post Type */}
                 <div>
                     <label className="block text-gray-700 font-semibold mb-2">Post Type</label>
@@ -78,7 +80,7 @@ const AddLost = () => {
                     </select>
                 </div>
 
-                {/* Thumbnail */}
+                {/* PhotoURL */}
                 <div>
                     <label className="block text-gray-700 font-semibold mb-2">PhotoURL</label>
                     <input
@@ -138,6 +140,7 @@ const AddLost = () => {
                         selected={selectedDate}
                         onChange={(date) => setSelectedDate(date)}
                         name="date"
+                        dateFormat="yyyy-MM-dd"
                         className="block w-full border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-indigo-300 px-4 py-2"
                     />
                 </div>

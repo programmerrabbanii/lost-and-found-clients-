@@ -63,7 +63,7 @@ const LostItems = () => {
 
                         {/* Footer */}
                         <div className="p-6 flex justify-between items-center">
-                            <Link to={`/details/${item.id}`}
+                            <Link to={`/details/${item._id}`}
                                 className="text-white bg-blue-600 px-4 py-2 rounded-full shadow-lg hover:bg-blue-700 transition"
                             >
                                 View Details
