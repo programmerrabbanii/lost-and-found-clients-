@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Swal from "sweetalert2";
 
 const Details = ({ user }) => {
     const { id } = useParams();
@@ -35,21 +36,27 @@ const Details = ({ user }) => {
                 recoveredDate,
                 recoveredLocation,
                 recoveredBy: {
-                    name: user.name,
-                    email: user.email,
-                    image: user.image,
+                    name: user?.name,
+                    email: user?.email,
+                    image: user?.image,
                 },
             };
 
             // Store recovered data in another collection
-            // await axios.post("https://your-api-endpoint/recovered-items", recoveredData);
+            await axios.post("http://localhost:5000/recovered-items", recoveredData);
 
             // // Update item status
-            // await axios.patch(`https://your-api-endpoint/items/${item._id}`, {
+            // await axios.patch(`http://localhost:5000/items/${item._id}`, {
             //     status: "recovered",
             // });
 
-            alert("Item status updated to 'Recovered'!");
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Item status updated to 'Recovered'!",
+                showConfirmButton: false,
+                timer: 1500
+              });
             setModalOpen(false);
         } catch (error) {
             console.error("Error updating item:", error);
@@ -133,7 +140,7 @@ const Details = ({ user }) => {
                             <label className="block text-gray-700 mb-2">Recovered By</label>
                             <input
                                 type="text"
-                                value={`${user?.name} (${user?.email})`}
+                                value={`${user?.userName} (${user?.contactEmail})`}
                                 readOnly
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-100"
                             />
