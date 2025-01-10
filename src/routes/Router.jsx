@@ -43,7 +43,7 @@ const router=createBrowserRouter([
             {
                 path:'/details/:id',
                 element:<Private><Details></Details></Private>,
-                loader:({params})=>fetch(`/http://localhost:5000/item/${params.id}`)
+                loader:({params})=>fetch(`https://lost-found-server-nine.vercel.app/item/${params.id}`)
                 
 
             },

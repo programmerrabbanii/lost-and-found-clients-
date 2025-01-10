@@ -1,21 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
+import { AuthContext } from "../auth/AuthProvider";
 
 const Details = ({ user }) => {
+
     const { id } = useParams();
     const [item, setItem] = useState(null);
     const [isModalOpen, setModalOpen] = useState(false);
     const [recoveredDate, setRecoveredDate] = useState(new Date());
     const [recoveredLocation, setRecoveredLocation] = useState("");
+    const {user:userInfo}=useContext(AuthContext)
+    console.log(userInfo);
 
     useEffect(() => {
         const fetchItemDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/item/${id}`);
+                const response = await axios.get(`https://lost-found-server-nine.vercel.app/item/${id}`);
                 setItem(response.data);
             } catch (error) {
                 console.error("Error fetching item details:", error);
@@ -43,10 +47,10 @@ const Details = ({ user }) => {
             };
 
             // Store recovered data in another collection
-            await axios.post("http://localhost:5000/recovered-items", recoveredData);
+            await axios.post("https://lost-found-server-nine.vercel.app/recovered-items", recoveredData);
 
             // // Update item status
-            // await axios.patch(`http://localhost:5000/items/${item._id}`, {
+            // await axios.patch(`https://lost-found-server-nine.vercel.app/items/${item._id}`, {
             //     status: "recovered",
             // });
 
@@ -140,7 +144,7 @@ const Details = ({ user }) => {
                             <label className="block text-gray-700 mb-2">Recovered By</label>
                             <input
                                 type="text"
-                                value={`${user?.userName} (${user?.contactEmail})`}
+                                value={`${userInfo?.userName} (${user?.contactEmail})`}
                                 readOnly
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-100"
                             />

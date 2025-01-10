@@ -9,7 +9,7 @@ const Found = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/allItems")
+            .get("https://lost-found-server-nine.vercel.app/allItems")
             .then((result) => {
                 setAllItems(result.data);
             })

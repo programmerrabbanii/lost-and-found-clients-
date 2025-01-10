@@ -39,7 +39,7 @@ const AddLost = () => {
         };
 
         try {
-            const response = await axios.post('http://localhost:5000/addItems', lostAllItems);
+            const response = await axios.post('https://lost-found-server-nine.vercel.app/addItems', lostAllItems);
             setAddItems(response.data);
 
             Swal.fire({

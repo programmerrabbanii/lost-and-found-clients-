@@ -20,7 +20,7 @@ const Update = () => {
   useEffect(() => {
     const fetchItemData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/allItems/${id}`);
+        const response = await fetch(`https://lost-found-server-nine.vercel.app/allItems/${id}`);
         const data = await response.json();
         setItemData(data);
       } catch (error) {
@@ -42,7 +42,7 @@ const Update = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:5000/updateItems/${id}`, {
+      const response = await fetch(`https://lost-found-server-nine.vercel.app/updateItems/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(itemData),

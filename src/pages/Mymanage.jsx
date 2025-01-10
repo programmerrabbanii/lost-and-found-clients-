@@ -11,7 +11,7 @@ const Mymanage = () => {
     const fetchCampaigns = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/my-manage/${user?.email}`
+          `https://lost-found-server-nine.vercel.app/my-manage/${user?.email}`
         );
         const data = await response.json();
         setCampaigns(data);
@@ -37,7 +37,7 @@ const Mymanage = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const response = await fetch(`http://localhost:5000/itemsD/${id}`, {
+          const response = await fetch(`https://lost-found-server-nine.vercel.app/itemsD/${id}`, {
             method: "DELETE",
           });
           if (response.ok) {

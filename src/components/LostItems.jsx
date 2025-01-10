@@ -7,7 +7,7 @@ const LostItems = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/items")
+        axios.get("https://lost-found-server-nine.vercel.app/items")
             .then((res) => setItems(res.data))
             .catch((err) => console.error(err));
     }, []);
