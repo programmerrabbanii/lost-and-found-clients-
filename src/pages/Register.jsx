@@ -1,11 +1,12 @@
 import Lottie from "lottie-react";
 import lottieRegister from "../assets/lottie/Animation - 1733924011105.json";
-import {  useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../auth/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { createUser, setUser, loginGoogle } = useContext(AuthContext);
@@ -94,112 +95,125 @@ const Register = () => {
   };
 
   return (
-    <div className="hero bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse gap-10">
-        {/* Lottie Animation */}
-        <div className="text-center lg:text-left w-full max-w-md">
-          <Lottie animationData={lottieRegister} loop={true} />
-        </div>
+    <div>
+      <Helmet>
+        <title>
+          lost-found || Registered
+        </title>
+      </Helmet>
+      <div className="hero bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 min-h-screen">
+        <div className="hero-content flex-col lg:flex-row-reverse gap-10">
+          {/* Lottie Animation */}
+          <div className="text-center lg:text-left w-full max-w-md">
+            <Lottie animationData={lottieRegister} loop={true} />
+          </div>
 
-        {/* Card with Form */}
-        <div className="card bg-white shadow-2xl w-full max-w-3xl mx-auto rounded-xl p-8">
-          <form  onSubmit={handleRegister} className="card-body">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {/* Full Name Input Field */}
-              <div className="form-control">
-                <label className="label mb-2">
-                  <span className="label-text text-lg font-medium">
-                    Full Name
-                  </span>
-                </label>
-                <input
-                  name="name"
-                  type="text"
-                  placeholder="Enter your full name"
-                  className="input input-bordered input-primary w-full py-4 px-6 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-lg"
-                  required
-                />
-              </div>
-
-              {/* Email Input Field */}
-              <div className="form-control">
-                <label className="label mb-2">
-                  <span className="label-text text-lg font-medium">Email</span>
-                </label>
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  className="input input-bordered input-primary w-full py-4 px-6 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-lg"
-                  required
-                />
-              </div>
-
-              {/* Password Input Field */}
-              <div className="form-control relative">
-                <label className="label mb-2">
-                  <span className="label-text text-lg font-medium">
-                    Password
-                  </span>
-                </label>
-                <div className="relative">
+          {/* Card with Form */}
+          <div className="card bg-white shadow-2xl w-full max-w-3xl mx-auto rounded-xl p-8">
+            <form onSubmit={handleRegister} className="card-body">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {/* Full Name Input Field */}
+                <div className="form-control">
+                  <label className="label mb-2">
+                    <span className="label-text text-lg font-medium">
+                      Full Name
+                    </span>
+                  </label>
                   <input
-                    name="password"
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Enter your password"
+                    name="name"
+                    type="text"
+                    placeholder="Enter your full name"
                     className="input input-bordered input-primary w-full py-4 px-6 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-lg"
                     required
                   />
-                  {/* Toggle Button */}
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-3 flex items-center text-gray-500"
-                  >
-                    {showPassword ? "Hide" : "Show"}
-                  </button>
+                </div>
+
+                {/* Email Input Field */}
+                <div className="form-control">
+                  <label className="label mb-2">
+                    <span className="label-text text-lg font-medium">
+                      Email
+                    </span>
+                  </label>
+                  <input
+                    name="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    className="input input-bordered input-primary w-full py-4 px-6 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-lg"
+                    required
+                  />
+                </div>
+
+                {/* Password Input Field */}
+                <div className="form-control relative">
+                  <label className="label mb-2">
+                    <span className="label-text text-lg font-medium">
+                      Password
+                    </span>
+                  </label>
+                  <div className="relative">
+                    <input
+                      name="password"
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Enter your password"
+                      className="input input-bordered input-primary w-full py-4 px-6 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-lg"
+                      required
+                    />
+                    {/* Toggle Button */}
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      className="absolute inset-y-0 right-3 flex items-center text-gray-500"
+                    >
+                      {showPassword ? "Hide" : "Show"}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Profile Photo URL Input Field */}
+                <div className="form-control">
+                  <label className="label mb-2">
+                    <span className="label-text text-lg font-medium">
+                      Profile Photo URL
+                    </span>
+                  </label>
+                  <input
+                    name="photo"
+                    type="text"
+                    placeholder="Enter your profile photo URL"
+                    className="input input-bordered input-primary w-full py-4 px-6 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-lg"
+                    required
+                  />
                 </div>
               </div>
+              {errorPassWord && (
+                <p className="text-red-600 font-bold"> {errorPassWord} </p>
+              )}
 
-              {/* Profile Photo URL Input Field */}
-              <div className="form-control">
-                <label className="label mb-2">
-                  <span className="label-text text-lg font-medium">
-                    Profile Photo URL
-                  </span>
-                </label>
-                <input
-                  name="photo"
-                  type="text"
-                  placeholder="Enter your profile photo URL"
-                  className="input input-bordered input-primary w-full py-4 px-6 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 text-lg"
-                  required
-                />
+              {/* Submit Button */}
+              <div className="form-control mt-6">
+                <button className="btn btn-primary w-full py-3 rounded-lg text-lg font-medium">
+                  Register
+                </button>
               </div>
-            </div>
-            {errorPassWord && (
-              <p className="text-red-600 font-bold"> {errorPassWord} </p>
-            )}
+            </form>
 
-            {/* Submit Button */}
-            <div className="form-control mt-6">
-              <button className="btn btn-primary w-full py-3 rounded-lg text-lg font-medium">
-                Register
+            {/* Google Login Button */}
+            <div className="form-control mt-4">
+              <button
+                onClick={handleGoogleLogin}
+                className="btn btn-secondary w-full py-3 rounded-lg text-lg font-medium"
+              >
+                Sign in with Google
               </button>
             </div>
-          </form>
-
-          {/* Google Login Button */}
-          <div className="form-control mt-4">
-            <button
-            onClick={handleGoogleLogin}
-              
-              className="btn btn-secondary w-full py-3 rounded-lg text-lg font-medium"
-            >
-              Sign in with Google
-            </button>
+            <p className="text-center">
+              Already have an account?{" "}
+              <Link className="font-semibold" to="/login">
+                Login here
+              </Link>
+            </p>
           </div>
-          <p className="text-center">Already have an account? <Link className="font-semibold" to='/login'>Login here</Link></p>
         </div>
       </div>
     </div>

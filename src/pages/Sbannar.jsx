@@ -19,12 +19,12 @@ const Sbannar = () => {
                     images.map((image, index) => (
                         <div
                             key={index}
-                            className="flex justify-center items-center h-[60px] w-[80px] overflow-hidden mx-auto"
+                            className="flex justify-center items-center h-[80px] w-[80px] overflow-hidden"
                         >
                             <img
                                 src={image}
                                 alt={`Thumbnail ${index + 1}`}
-                                className="h-[50px] w-auto object-contain"
+                                className="h-[50px] w-[50px] object-contain mx-auto"
                             />
                         </div>
                     ))

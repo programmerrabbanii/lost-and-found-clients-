@@ -1,4 +1,5 @@
 // import Bannar from "../components/Bannar";
+import { Helmet } from "react-helmet";
 import HowItWork from "../components/HowItWork";
 import LostItems from "../components/LostItems";
 import Newsletter from "../components/Newsletter";
@@ -9,6 +10,11 @@ import Sbannar from "./Sbannar";
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>
+                    lost-found || Home
+                </title>
+            </Helmet>
             
             {/* <Bannar></Bannar> */}
              <Sbannar></Sbannar>
