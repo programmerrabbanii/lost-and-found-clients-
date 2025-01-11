@@ -6,6 +6,7 @@ import { AuthContext } from "../auth/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -148,7 +149,7 @@ const Login = () => {
                   type="button"
                   className="btn btn-outline btn-secondary w-full py-3 rounded-lg text-lg font-medium"
                 >
-                  <span className="mr-2">🔑</span> Login with Google
+                  <span className="mr-2"><FaGoogle></FaGoogle></span> Login with Google
                 </button>
               </div>
               <p className="text-center">

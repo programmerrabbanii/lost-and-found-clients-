@@ -47,7 +47,7 @@ const Success = () => {
                   {story.title}
                 </h3>
                 <p className="text-gray-500 mb-4">{story.desc}</p>
-                <span className="text-yellow-400 font-semibold">
+                <span className="text-gray-500 font-semibold">
                   {story.author}
                 </span>
               </motion.div>

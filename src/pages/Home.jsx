@@ -9,12 +9,12 @@ import Sbannar from "./Sbannar";
 
 const Home = () => {
     return (
-        <div>
+        <div className="bg-gradient-to-b from-gray-50 to-gray-50">
             <Helmet>
                 <title>
                     lost-found || Home
                 </title>
-            </Helmet>
+            </Helmet>  
             
             {/* <Bannar></Bannar> */}
              <Sbannar></Sbannar>

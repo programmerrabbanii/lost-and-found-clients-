@@ -7,6 +7,7 @@ import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { FaGoogle } from "react-icons/fa";
 
 const Register = () => {
   const { createUser, setUser, loginGoogle } = useContext(AuthContext);
@@ -97,9 +98,7 @@ const Register = () => {
   return (
     <div>
       <Helmet>
-        <title>
-          lost-found || Registered
-        </title>
+        <title>lost-found || Registered</title>
       </Helmet>
       <div className="hero bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse gap-10">
@@ -196,17 +195,22 @@ const Register = () => {
                   Register
                 </button>
               </div>
-            </form>
-
-            {/* Google Login Button */}
-            <div className="form-control mt-4">
+               {/* Google Login Button */}
+            <div className="form-control">
               <button
                 onClick={handleGoogleLogin}
-                className="btn btn-secondary w-full py-3 rounded-lg text-lg font-medium"
+                type="button"
+                className="btn btn-outline btn-secondary w-full py-3 rounded-lg text-lg font-medium"
               >
-                Sign in with Google
+                <span className="mr-2">
+                  <FaGoogle></FaGoogle>
+                </span>{" "}
+                Login with Google
               </button>
             </div>
+            </form>
+
+           
             <p className="text-center">
               Already have an account?{" "}
               <Link className="font-semibold" to="/login">

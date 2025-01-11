@@ -39,7 +39,7 @@ const Recent = () => {
   return (
     <div className="w-11/12 mx-auto mt-10">
       <h2 className="text-3xl font-bold text-center mb-8">Recent Products</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
         {products.map((product) => (
           <div
             key={product.id}
@@ -52,17 +52,17 @@ const Recent = () => {
             />
             <div className="p-4">
               <h3 className="text-lg font-semibold mb-1">{product.title}</h3>
-              <p className="text-gray-600 text-sm mb-2">{product.description}</p>
+              <p className="text-gray-600  mb-2">{product.description}</p>
               <p className="text-gray-500 text-xs">
                 <span className="font-bold text-gray-800">Location: </span>
                 {product.location}
               </p>
             </div>
           </div>
-        ))}
+        ))} 
       </div>
     </div>
-  );
+  ); 
 };
 
 export default Recent;
