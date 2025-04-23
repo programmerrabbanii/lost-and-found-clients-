@@ -34,11 +34,11 @@ const Footer = () => {
 
         {/* Copyright Information */}
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} WhereIsIt. All rights reserved.
+          &copy; {new Date().getFullYear()} Rabbani Sarkar. All rights reserved.
         </p>
       </div>
     </footer>
   );
 };
 
-export default Footer;
+export default Footer; 
