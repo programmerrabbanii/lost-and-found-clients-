@@ -17,7 +17,7 @@ const LostItems = () => {
     <div className="px-4 sm:px-8 py-14 bg-gradient-to-br from-gray-100 via-white to-gray-200 min-h-screen w-full">
       {/* Page Header */}
       <motion.h2
-        className="text-4xl font-extrabold text-center text-gray-800 mb-14 tracking-tight"
+        className="text-4xl font-bold text-center text-gray-800 mb-14 tracking-tight"
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -26,7 +26,7 @@ const LostItems = () => {
       </motion.h2>
 
       {/* Items Grid */}
-      <motion.div
+      <motion.div 
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
         initial="hidden"
         animate="visible"
