@@ -14,7 +14,7 @@ const LostItems = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-6 py-12 bg-gradient-to-b from-gray-50 to-gray-50 min-h-screen">
+    <div className="container mx-auto px-6 py-12 bg-gradient-to-b from-gray-50 to-gray-50 min-h-screen w-11/12 mx-auto">
       {/* Page Header */}
       <motion.h2
         className="text-4xl font-extrabold text-center text-gray-800 mb-10 tracking-wide"

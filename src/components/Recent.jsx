@@ -44,7 +44,7 @@ const Recent = () => {
           <div
             key={product.id}
             className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
-          >
+          > 
             <img
               src={product.img}
               alt={product.title}
