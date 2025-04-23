@@ -6,6 +6,7 @@ import Newsletter from "../components/Newsletter";
 import Recent from "../components/Recent";
 import Success from "../components/Success";
 import Sbannar from "./Sbannar";
+import About from "../components/About";
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
             
             {/* <Bannar></Bannar> */}
              <Sbannar></Sbannar>
+             <About></About>
             <LostItems></LostItems>
             <Recent></Recent>
              <HowItWork></HowItWork>
