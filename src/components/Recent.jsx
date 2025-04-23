@@ -2,7 +2,8 @@ import React from "react";
 import laptop from "../assets/img/alex-knight-j4uuKnN43_M-unsplash.jpg";
 import mobile from "../assets/img/download (16).jfif";
 import remote from "../assets/img/glenn-carstens-peters-3BScbSvtQzM-unsplash.jpg";
-import camara from "../assets/img/camara.jpg"
+import camara from "../assets/img/camara.jpg";
+import { motion } from "framer-motion";
 
 const Recent = () => {
   const products = [
@@ -34,35 +35,45 @@ const Recent = () => {
       description: "Designed for comfort and productivity.",
       location: "Sydney, Australia",
     },
-  ];
+  ]; 
 
   return (
-    <div className="w-11/12 mx-auto mt-10">
-      <h2 className="text-3xl font-bold text-center mb-8">Recent Products</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
-        {products.map((product) => (
-          <div
+    <div className="w-11/12 mx-auto py-16 bg-gradient-to-b from-gray-50 to-white">
+      <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+      Recently Reunited with Owners
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {products.map((product, index) => (
+          <motion.div
             key={product.id}
-            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
-          > 
+            className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+          >
             <img
               src={product.img}
               alt={product.title}
-              className="w-full h-40 object-cover"
+              className="w-full h-48 object-cover"
             />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold mb-1">{product.title}</h3>
-              <p className="text-gray-600  mb-2">{product.description}</p>
-              <p className="text-gray-500 text-xs">
-                <span className="font-bold text-gray-800">Location: </span>
+            <div className="p-6 flex flex-col justify-between flex-grow">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  {product.title}
+                </h3>
+                <p className="text-gray-600 mb-3">{product.description}</p>
+              </div>
+              <div className="mt-auto text-sm text-gray-500">
+                <span className="font-semibold text-gray-700">📍 Location: </span>
                 {product.location}
-              </p>
+              </div>
             </div>
-          </div>
-        ))} 
+          </motion.div>
+        ))}
       </div>
     </div>
-  ); 
+  );
 };
 
 export default Recent;
