@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section className="py-20 bg-gray-50">
       <div className="w-11/12 mx-auto px-5">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
           {/* Text Content Animation */}
           <motion.div
